@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-import sys
-from math import sqrt
+if __name__ == "__main__":
+    import sys
+    from math import sqrt
 
-def printt(a):
-    q = int(sqrt(a))
-    for i in range(2, q + 1):
-        if a % i == 0:
-            print("{}={}*{}".format(a, a//i, i))
-            break
+    if len(sys.argv) != 2:
+        print("Error")
+        sys.exit()
 
-f = open(sys.argv[1], 'r')
-for line in f:
-    printt(int(line))
-f.close
+    def printt(a):
+        q = int(sqrt(a))
+        for i in range(2, q + 1):
+            if a % i == 0:
+                print("{}={}*{}".format(a, a//i, i))
+                break
+
+
+    f = open(sys.argv[1], 'r')
+    for line in f:
+        printt(int(line))
+    f.close
